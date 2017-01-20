@@ -70,6 +70,6 @@ class RequestListComponent implements OnInit {
     options.columns
         .add(new GridColumn(field: "status", title: "Статус", sortable: true));
 
-    new Grid("#grid", options);
+    //new Grid("#grid", options);
   }
 }
