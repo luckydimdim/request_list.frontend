@@ -1,6 +1,8 @@
 import 'package:angular2/core.dart';
 import 'package:angular2/router.dart';
 
+import 'package:resources_loader/resources_loader.dart';
+
 import 'package:grid/grid.dart';
 
 @Component(selector: 'request-list')
@@ -15,8 +17,9 @@ class RequestListComponent implements OnInit {
       name: RequestListComponent.route_name);
 
   final Router _router;
+  final ResourcesLoaderService _resourcesLoaderService;
 
-  RequestListComponent(this._router) {}
+  RequestListComponent(this._router, this._resourcesLoaderService) {}
 
   @override
   void ngOnInit() {
@@ -70,6 +73,6 @@ class RequestListComponent implements OnInit {
     options.columns
         .add(new GridColumn(field: "status", title: "Статус", sortable: true));
 
-    //new Grid("#grid", options);
+    new Grid(this._resourcesLoaderService, "#grid", options);
   }
 }

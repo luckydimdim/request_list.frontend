@@ -10,6 +10,7 @@ import 'package:angular2/src/platform/browser/location/hash_location_strategy.da
 import 'package:angular2/platform/common.dart';
 
 import 'package:request_list/request_list_component.dart';
+import 'package:resources_loader/resources_loader.dart';
 
 bool get isDebug =>
     (const String.fromEnvironment('PRODUCTION', defaultValue: 'false')) !=
@@ -22,7 +23,8 @@ main() async {
 
   ComponentRef ref = await bootstrap(RequestListComponent, [
     ROUTER_PROVIDERS,
-    const Provider(LocationStrategy, useClass: HashLocationStrategy)
+    const Provider(LocationStrategy, useClass: HashLocationStrategy),
+    const Provider(ResourcesLoaderService),
   ]);
 
   if (isDebug) {
