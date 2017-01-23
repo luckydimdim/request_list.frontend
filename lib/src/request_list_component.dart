@@ -36,7 +36,7 @@ class RequestListComponent implements OnInit {
     var transportRead = new DataSourceTransportRead()
       ..type = "get"
       ..dataType = "json"
-      ..url = "//localhost:5000/api/request/list";
+      ..url = "//cm-ylng-msk-01/cmas-backend/api/request/list";      
 
     var transport = new DataSourceTransport()..read = transportRead;
 
