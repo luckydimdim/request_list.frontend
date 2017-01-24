@@ -8,7 +8,7 @@ import 'package:grid/grid.dart';
 @Component(selector: 'request-list')
 @View(
     templateUrl: 'request_list_component.html', directives: const [RouterLink])
-class RequestListComponent implements OnInit {
+class RequestListComponent implements OnInit, OnDestroy {
   static const String route_name = "RequestList";
   static const String route_path = "requestList";
   static const Route route = const Route(
@@ -18,6 +18,8 @@ class RequestListComponent implements OnInit {
 
   final Router _router;
   final ResourcesLoaderService _resourcesLoaderService;
+
+  Grid _grid;
 
   RequestListComponent(this._router, this._resourcesLoaderService) {}
 
@@ -41,6 +43,12 @@ class RequestListComponent implements OnInit {
       ..method='GET';
 
 
-    new Grid(this._resourcesLoaderService, "#grid", options);
+    _grid = new Grid(this._resourcesLoaderService, "#grid", options);
+  }
+
+  @override
+  void ngOnDestroy() {
+    _grid.Destroy();
+
   }
 }
