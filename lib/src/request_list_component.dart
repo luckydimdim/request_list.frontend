@@ -25,23 +25,31 @@ class RequestListComponent implements OnInit, OnDestroy {
 
   @override
   void ngOnInit() {
-
-
     var columns = new List<Column>();
     columns.add(new Column(field: 'id', caption: '№', size: '150px'));
-    columns.add(new Column(field: 'contractorName', caption: 'Подрядчик', size: '200px'));
-    columns.add(new Column(field: 'creationDate', caption: 'Дата создания', render: 'date', size: '100px'));
-    columns.add(new Column(field: 'correctionDate', caption: 'Дата изменения', render: 'date', size: '100px'));
-    columns.add(new Column(field: 'contractNumber', caption: '№ договора', size: '200px'));
-    columns.add(new Column(field: 'amount', caption: 'Сумма к оплате', size: '100px'));
+    columns.add(new Column(
+        field: 'contractorName', caption: 'Подрядчик', size: '200px'));
+    columns.add(new Column(
+        field: 'creationDate',
+        caption: 'Дата создания',
+        render: 'date',
+        size: '100px'));
+    columns.add(new Column(
+        field: 'correctionDate',
+        caption: 'Дата изменения',
+        render: 'date',
+        size: '100px'));
+    columns.add(new Column(
+        field: 'contractNumber', caption: '№ договора', size: '200px'));
+    columns.add(
+        new Column(field: 'amount', caption: 'Сумма к оплате', size: '100px'));
     columns.add(new Column(field: 'status', caption: 'Статус', size: '100px'));
 
     GridOptions options = new GridOptions()
       ..name = 'grid'
       ..columns = columns
-      ..url='//cm-ylng-msk-01/cmas-backend/api/request/list'
-      ..method='GET';
-
+      ..url = '//cm-ylng-msk-01/cmas-backend/api/request/list'
+      ..method = 'GET';
 
     _grid = new Grid(this._resourcesLoaderService, "#grid", options);
   }
@@ -49,6 +57,5 @@ class RequestListComponent implements OnInit, OnDestroy {
   @override
   void ngOnDestroy() {
     _grid.Destroy();
-
   }
 }
