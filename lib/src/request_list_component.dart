@@ -48,7 +48,8 @@ class RequestListComponent implements OnInit, OnDestroy {
     GridOptions options = new GridOptions()
       ..name = 'grid'
       ..columns = columns
-      ..url = '//cm-ylng-msk-01/cmas-backend/api/request/list'
+      //..url = '//cm-ylng-msk-01/cmas-backend/api/request/list'
+      ..url = 'http://localhost:5000/api/request/list'
       ..method = 'GET';
 
     _grid = new Grid(this._resourcesLoaderService, "#grid", options);
