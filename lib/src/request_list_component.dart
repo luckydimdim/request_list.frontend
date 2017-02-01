@@ -1,6 +1,6 @@
 import 'package:angular2/core.dart';
 import 'package:angular2/router.dart';
-
+import 'dart:html';
 import 'package:resources_loader/resources_loader.dart';
 
 import 'package:grid/grid.dart';
@@ -23,8 +23,23 @@ class RequestListComponent implements OnInit, OnDestroy {
 
   RequestListComponent(this._router, this._resourcesLoaderService) {}
 
+  void breadcrumbInit(){
+    var  breadcrumbContent = querySelector('#breadcrumbContent') as DivElement;
+
+    if (breadcrumbContent == null)
+      return;
+
+    breadcrumbContent.innerHtml = '''
+            <li class="breadcrumb-item"><a href="#/master/dashboard">Главная</a></li>
+            <li class="breadcrumb-item active">Список заявок</li>
+    ''';
+  }
+
   @override
   void ngOnInit() {
+
+    breadcrumbInit();
+
     var columns = new List<Column>();
     columns.add(new Column(field: 'id', caption: '№', size: '150px'));
     columns.add(new Column(
