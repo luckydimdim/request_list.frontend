@@ -10,7 +10,7 @@ import 'package:grid/grid.dart';
     templateUrl: 'request_list_component.html', directives: const [RouterLink])
 class RequestListComponent implements OnInit, OnDestroy {
   static const String route_name = "RequestList";
-  static const String route_path = "requestList";
+  static const String route_path = "request-list";
   static const Route route = const Route(
       path: RequestListComponent.route_path,
       component: RequestListComponent,
