@@ -40,7 +40,7 @@ class RequestListComponent implements OnInit, OnDestroy {
 
     breadcrumbInit();
 
-    var columns = new List<Column>();
+/*    var columns = new List<Column>();
     columns.add(new Column(field: 'id', caption: '№', size: '150px'));
     columns.add(new Column(
         field: 'contractorName', caption: 'Подрядчик', size: '200px'));
@@ -67,11 +67,11 @@ class RequestListComponent implements OnInit, OnDestroy {
       //..url = 'http://localhost:5000/api/request/list'
       ..method = 'GET';
 
-    _grid = new Grid(this._resourcesLoaderService, "#grid", options);
+    _grid = new Grid(this._resourcesLoaderService, "#grid", options);*/
   }
 
   @override
   void ngOnDestroy() {
-    _grid.Destroy();
+   /* _grid.Destroy();*/
   }
 }
